@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1F817F47-6259-4DF7-B2B6-69A991343FBA}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>6.9.0_msvc2022_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>Qt_6.9.0-static</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Code\Qt_WIFI\mbedtls\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <DisableSpecificWarnings>4231; 4251; 4275; 4355; 4505</DisableSpecificWarnings>
+      <ErrorReporting>None</ErrorReporting>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\Code\Qt_WIFI\cryptopp\x64\DLL_Output\Debug</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Code\Qt_WIFI\mbedtls\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\mbedtls\library\aes.c" />
+    <ClCompile Include="..\mbedtls\library\aesce.c" />
+    <ClCompile Include="..\mbedtls\library\aesni.c" />
+    <ClCompile Include="..\mbedtls\library\aria.c" />
+    <ClCompile Include="..\mbedtls\library\asn1parse.c" />
+    <ClCompile Include="..\mbedtls\library\asn1write.c" />
+    <ClCompile Include="..\mbedtls\library\base64.c" />
+    <ClCompile Include="..\mbedtls\library\bignum.c" />
+    <ClCompile Include="..\mbedtls\library\bignum_core.c" />
+    <ClCompile Include="..\mbedtls\library\bignum_mod.c" />
+    <ClCompile Include="..\mbedtls\library\bignum_mod_raw.c" />
+    <ClCompile Include="..\mbedtls\library\block_cipher.c" />
+    <ClCompile Include="..\mbedtls\library\camellia.c" />
+    <ClCompile Include="..\mbedtls\library\ccm.c" />
+    <ClCompile Include="..\mbedtls\library\chacha20.c" />
+    <ClCompile Include="..\mbedtls\library\chachapoly.c" />
+    <ClCompile Include="..\mbedtls\library\cipher.c" />
+    <ClCompile Include="..\mbedtls\library\cipher_wrap.c" />
+    <ClCompile Include="..\mbedtls\library\cmac.c" />
+    <ClCompile Include="..\mbedtls\library\constant_time.c" />
+    <ClCompile Include="..\mbedtls\library\ctr_drbg.c" />
+    <ClCompile Include="..\mbedtls\library\debug.c" />
+    <ClCompile Include="..\mbedtls\library\des.c" />
+    <ClCompile Include="..\mbedtls\library\dhm.c" />
+    <ClCompile Include="..\mbedtls\library\ecdh.c" />
+    <ClCompile Include="..\mbedtls\library\ecdsa.c" />
+    <ClCompile Include="..\mbedtls\library\ecjpake.c" />
+    <ClCompile Include="..\mbedtls\library\ecp.c" />
+    <ClCompile Include="..\mbedtls\library\ecp_curves.c" />
+    <ClCompile Include="..\mbedtls\library\ecp_curves_new.c" />
+    <ClCompile Include="..\mbedtls\library\entropy.c" />
+    <ClCompile Include="..\mbedtls\library\entropy_poll.c" />
+    <ClCompile Include="..\mbedtls\library\error.c" />
+    <ClCompile Include="..\mbedtls\library\gcm.c" />
+    <ClCompile Include="..\mbedtls\library\hkdf.c" />
+    <ClCompile Include="..\mbedtls\library\hmac_drbg.c" />
+    <ClCompile Include="..\mbedtls\library\lmots.c" />
+    <ClCompile Include="..\mbedtls\library\lms.c" />
+    <ClCompile Include="..\mbedtls\library\md.c" />
+    <ClCompile Include="..\mbedtls\library\md5.c" />
+    <ClCompile Include="..\mbedtls\library\memory_buffer_alloc.c" />
+    <ClCompile Include="..\mbedtls\library\mps_reader.c" />
+    <ClCompile Include="..\mbedtls\library\mps_trace.c" />
+    <ClCompile Include="..\mbedtls\library\net_sockets.c" />
+    <ClCompile Include="..\mbedtls\library\nist_kw.c" />
+    <ClCompile Include="..\mbedtls\library\oid.c" />
+    <ClCompile Include="..\mbedtls\library\padlock.c" />
+    <ClCompile Include="..\mbedtls\library\pem.c" />
+    <ClCompile Include="..\mbedtls\library\pk.c" />
+    <ClCompile Include="..\mbedtls\library\pkcs12.c" />
+    <ClCompile Include="..\mbedtls\library\pkcs5.c" />
+    <ClCompile Include="..\mbedtls\library\pkcs7.c" />
+    <ClCompile Include="..\mbedtls\library\pkparse.c" />
+    <ClCompile Include="..\mbedtls\library\pkwrite.c" />
+    <ClCompile Include="..\mbedtls\library\pk_ecc.c" />
+    <ClCompile Include="..\mbedtls\library\pk_wrap.c" />
+    <ClCompile Include="..\mbedtls\library\platform.c" />
+    <ClCompile Include="..\mbedtls\library\platform_util.c" />
+    <ClCompile Include="..\mbedtls\library\poly1305.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_aead.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_cipher.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_client.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_driver_wrappers_no_static.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_ecp.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_ffdh.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_hash.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_mac.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_pake.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_rsa.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_se.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_slot_management.c" />
+    <ClCompile Include="..\mbedtls\library\psa_crypto_storage.c" />
+    <ClCompile Include="..\mbedtls\library\psa_its_file.c" />
+    <ClCompile Include="..\mbedtls\library\psa_util.c" />
+    <ClCompile Include="..\mbedtls\library\ripemd160.c" />
+    <ClCompile Include="..\mbedtls\library\rsa.c" />
+    <ClCompile Include="..\mbedtls\library\rsa_alt_helpers.c" />
+    <ClCompile Include="..\mbedtls\library\sha1.c" />
+    <ClCompile Include="..\mbedtls\library\sha256.c" />
+    <ClCompile Include="..\mbedtls\library\sha3.c" />
+    <ClCompile Include="..\mbedtls\library\sha512.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_cache.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_ciphersuites.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_client.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_cookie.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_debug_helpers_generated.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_msg.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_ticket.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_tls.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_tls12_client.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_tls12_server.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_tls13_client.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_tls13_generic.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_tls13_keys.c" />
+    <ClCompile Include="..\mbedtls\library\ssl_tls13_server.c" />
+    <ClCompile Include="..\mbedtls\library\threading.c" />
+    <ClCompile Include="..\mbedtls\library\timing.c" />
+    <ClCompile Include="..\mbedtls\library\version.c" />
+    <ClCompile Include="..\mbedtls\library\version_features.c" />
+    <ClCompile Include="..\mbedtls\library\x509.c" />
+    <ClCompile Include="..\mbedtls\library\x509write.c" />
+    <ClCompile Include="..\mbedtls\library\x509write_crt.c" />
+    <ClCompile Include="..\mbedtls\library\x509write_csr.c" />
+    <ClCompile Include="..\mbedtls\library\x509_create.c" />
+    <ClCompile Include="..\mbedtls\library\x509_crl.c" />
+    <ClCompile Include="..\mbedtls\library\x509_crt.c" />
+    <ClCompile Include="..\mbedtls\library\x509_csr.c" />
+    <ClCompile Include="AlgoInfo.cpp" />
+    <ClCompile Include="blob.cpp" />
+    <ClCompile Include="config\dpapi.cpp" />
+    <ClCompile Include="config\DPAPI\crypto.cpp" />
+    <ClCompile Include="config\DPAPI\masterkey.cpp" />
+    <ClCompile Include="config\DPAPI\structures.cpp" />
+    <ClCompile Include="credhist.cpp" />
+    <ClCompile Include="CredSystem.cpp" />
+    <ClCompile Include="log\logger.cpp" />
+    <ClCompile Include="registry.cpp" />
+    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="widget.cpp" />
+    <ClCompile Include="wifi.cpp" />
+    <QtRcc Include="Qt_WiFi.qrc" />
+    <ClCompile Include="constant.cpp" />
+    <ClCompile Include="drv_user.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\mbedtls\library\aesce.h" />
+    <ClInclude Include="..\mbedtls\library\aesni.h" />
+    <ClInclude Include="..\mbedtls\library\alignment.h" />
+    <ClInclude Include="..\mbedtls\library\base64_internal.h" />
+    <ClInclude Include="..\mbedtls\library\bignum_core.h" />
+    <ClInclude Include="..\mbedtls\library\bignum_core_invasive.h" />
+    <ClInclude Include="..\mbedtls\library\bignum_internal.h" />
+    <ClInclude Include="..\mbedtls\library\bignum_mod.h" />
+    <ClInclude Include="..\mbedtls\library\bignum_mod_raw.h" />
+    <ClInclude Include="..\mbedtls\library\bignum_mod_raw_invasive.h" />
+    <ClInclude Include="..\mbedtls\library\block_cipher_internal.h" />
+    <ClInclude Include="..\mbedtls\library\bn_mul.h" />
+    <ClInclude Include="..\mbedtls\library\check_crypto_config.h" />
+    <ClInclude Include="..\mbedtls\library\cipher_wrap.h" />
+    <ClInclude Include="..\mbedtls\library\common.h" />
+    <ClInclude Include="..\mbedtls\library\constant_time_impl.h" />
+    <ClInclude Include="..\mbedtls\library\constant_time_internal.h" />
+    <ClInclude Include="..\mbedtls\library\ctr.h" />
+    <ClInclude Include="..\mbedtls\library\debug_internal.h" />
+    <ClInclude Include="..\mbedtls\library\ecp_internal_alt.h" />
+    <ClInclude Include="..\mbedtls\library\ecp_invasive.h" />
+    <ClInclude Include="..\mbedtls\library\entropy_poll.h" />
+    <ClInclude Include="..\mbedtls\library\lmots.h" />
+    <ClInclude Include="..\mbedtls\library\md_psa.h" />
+    <ClInclude Include="..\mbedtls\library\md_wrap.h" />
+    <ClInclude Include="..\mbedtls\library\mps_common.h" />
+    <ClInclude Include="..\mbedtls\library\mps_error.h" />
+    <ClInclude Include="..\mbedtls\library\mps_reader.h" />
+    <ClInclude Include="..\mbedtls\library\mps_trace.h" />
+    <ClInclude Include="..\mbedtls\library\padlock.h" />
+    <ClInclude Include="..\mbedtls\library\pkwrite.h" />
+    <ClInclude Include="..\mbedtls\library\pk_internal.h" />
+    <ClInclude Include="..\mbedtls\library\pk_wrap.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_aead.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_cipher.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_core.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_core_common.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_driver_wrappers.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_driver_wrappers_no_static.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_ecp.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_ffdh.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_hash.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_invasive.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_its.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_mac.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_pake.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_random_impl.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_rsa.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_se.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_slot_management.h" />
+    <ClInclude Include="..\mbedtls\library\psa_crypto_storage.h" />
+    <ClInclude Include="..\mbedtls\library\psa_util_internal.h" />
+    <ClInclude Include="..\mbedtls\library\rsa_alt_helpers.h" />
+    <ClInclude Include="..\mbedtls\library\rsa_internal.h" />
+    <ClInclude Include="..\mbedtls\library\ssl_ciphersuites_internal.h" />
+    <ClInclude Include="..\mbedtls\library\ssl_client.h" />
+    <ClInclude Include="..\mbedtls\library\ssl_debug_helpers.h" />
+    <ClInclude Include="..\mbedtls\library\ssl_misc.h" />
+    <ClInclude Include="..\mbedtls\library\ssl_tls13_invasive.h" />
+    <ClInclude Include="..\mbedtls\library\ssl_tls13_keys.h" />
+    <ClInclude Include="..\mbedtls\library\x509_internal.h" />
+    <ClInclude Include="AlgoInfo.h" />
+    <ClInclude Include="blob.h" />
+    <ClInclude Include="config\dpapi.h" />
+    <ClInclude Include="config\DPAPI\crypto.h" />
+    <ClInclude Include="config\DPAPI\masterkey.h" />
+    <ClInclude Include="config\DPAPI\structures.h" />
+    <ClInclude Include="constant.h" />
+    <ClInclude Include="credhist.h" />
+    <ClInclude Include="CredSystem.h" />
+    <ClInclude Include="drv_user.h" />
+    <ClInclude Include="log\logger.h" />
+    <ClInclude Include="registry.h" />
+    <ClInclude Include="ui_widget.h" />
+    <ClInclude Include="utils.h" />
+    <QtMoc Include="wifi.h" />
+    <QtMoc Include="widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\mbedtls\library\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\mbedtls\library\Makefile" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
